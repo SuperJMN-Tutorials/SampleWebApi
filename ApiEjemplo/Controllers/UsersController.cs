@@ -29,5 +29,12 @@ namespace ApiEjemplo.Controllers
         {
             return await mediator.Send(new GetAllBikes.Request(userId));
         }
+
+        [HttpPost("{userId}/bike")]
+        public async Task<int> CreateBike(int userId, CreateBike.BikeInfo biketInfo)
+        {
+            return await mediator.Send(new CreateBike.Request(userId, biketInfo));
+
+        }
     }
 }
