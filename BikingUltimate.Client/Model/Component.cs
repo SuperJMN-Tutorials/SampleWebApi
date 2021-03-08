@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ConsoleClient.Model
+namespace BikingUltimate.Client.Model
 {
-    public abstract class Component
+    public class Component
     {
         public string Brand { get; set; }
         public string Model { get; set; }

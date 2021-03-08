@@ -1,4 +1,5 @@
 ﻿using System;
+using BikingUltimate.Client.Model;
 
 namespace ConsoleClient.Model
 {

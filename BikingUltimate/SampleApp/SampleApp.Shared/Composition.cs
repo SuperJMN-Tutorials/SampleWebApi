@@ -62,9 +62,9 @@ namespace SampleApp
         {
             var sections = new[]
             {
-                new Section("Section 1", typeof(UsersViewModel)){ Icon = new SymbolIcon(Symbol.Home)},
-                new Section("Section 2", typeof(Section2ViewModel)){ Icon = new SymbolIcon(Symbol.Page)},
-                new Section("Section 3", typeof(Section3ViewModel)){ Icon = new SymbolIcon(Symbol.Page2)},
+                new Section("Usuarios", typeof(UsersViewModel)){ Icon = new SymbolIcon(Symbol.OtherUser)},
+                //new Section("Section 2", typeof(Section2ViewModel)){ Icon = new SymbolIcon(Symbol.Page)},
+                //new Section("Section 3", typeof(Section3ViewModel)){ Icon = new SymbolIcon(Symbol.Page2)},
             };
 
             mappings.AddRange(sections);

@@ -1,4 +1,4 @@
-﻿namespace ConsoleClient.Model
+﻿namespace BikingUltimate.Client.Model
 {
     public enum ComponentType
     {

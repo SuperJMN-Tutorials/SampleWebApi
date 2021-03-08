@@ -20,14 +20,78 @@
     </interactivity:Interaction.Behaviors>
 
     <Grid>
-        <controls:MasterDetailsView ItemsSource="{Binding Users}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ItemsControl ItemsSource="{Binding Users}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:Expander HorizontalContentAlignment="Stretch">
+
+                        <interactivity:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="Expanded">
+                                <core:InvokeCommandAction Command="{Binding LoadBikes}" InputConverter="{StaticResource UnitConverter}" />
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+
+                        <controls:Expander.Header>
+                            <TextBlock FontWeight="Bold">
+                                <Run Text="{Binding FirstName}" />
+                                <Run Text="{Binding LastName}" />
+                                <LineBreak /><Run FontSize="10" FontWeight="Light" Text="{Binding Username}" />
+                            </TextBlock>
+                        </controls:Expander.Header>
+                        <ListView Margin="10 0 0 0" ItemsSource="{Binding Bikes}" SelectedItem="{Binding SelectedBike, Mode=TwoWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50" />
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/Images/Bike.png"></Image>
+                                        <TextBlock Grid.Column="1" Margin="10">
+                                            <Run Text="{Binding Path=Brand}" />
+                                            <Run Text="{Binding Path=Model}" />
+                                        </TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </controls:Expander>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <views:BikeDetails Grid.Column="1" DataContext="{Binding  SelectedBike}" />
+        <!--<controls:MasterDetailsView ItemsSource="{Binding Users}">
+            <controls:MasterDetailsView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </controls:MasterDetailsView.ItemContainerStyle>
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock FontWeight="Bold">
-                        <Run Text="{Binding FirstName}" />
-                        <Run Text="{Binding LastName}" />
-                        <LineBreak /><Run FontSize="10" FontWeight="Light" Text="{Binding Username}"/>
-                    </TextBlock>
+                    <controls:Expander HorizontalContentAlignment="Stretch">
+                        <controls:Expander.Header>
+                            <TextBlock FontWeight="Bold">
+                                <Run Text="{Binding FirstName}" />
+                                <Run Text="{Binding LastName}" />
+                                <LineBreak /><Run FontSize="10" FontWeight="Light" Text="{Binding Username}" />
+                            </TextBlock>
+                        </controls:Expander.Header>
+                        <ListView>
+                            <ListViewItem>
+                                <TextBlock>Bici 1</TextBlock>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <TextBlock>Bici 2</TextBlock>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <TextBlock>Bici 3</TextBlock>
+                            </ListViewItem>
+                        </ListView>
+                    </controls:Expander>
                 </DataTemplate>
             </controls:MasterDetailsView.ItemTemplate>
             <controls:MasterDetailsView.MasterCommandBar>
@@ -44,9 +108,9 @@
                     <views:UserDetails></views:UserDetails>
                 </DataTemplate>
             </controls:MasterDetailsView.DetailsTemplate>
-        </controls:MasterDetailsView>
+        </controls:MasterDetailsView>-->
 
-        <controls:Loading Grid.Row="0" IsLoading="{Binding IsBusy}" VerticalContentAlignment="Stretch"
+        <controls:Loading Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" IsLoading="{Binding IsBusy}" VerticalContentAlignment="Stretch"
                           HorizontalContentAlignment="Stretch">
             <Grid>
                 <Border>

@@ -17,6 +17,7 @@ namespace BikingUltimate.Client
         [Get("/Users")]
         Task<ICollection<User>> GetUsers();
 
+        [Get("/Users/{userId}/bikes")]
         Task<ICollection<Bike>> GetBikes(int userId);
     }
 }

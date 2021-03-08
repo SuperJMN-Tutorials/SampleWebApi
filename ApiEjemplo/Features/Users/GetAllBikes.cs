@@ -47,6 +47,7 @@ namespace ApiEjemplo.Features.Users
 
         public class BikeRead
         {
+            public int Id { get; set; }
             public string Brand { get; set; }
             public double Distance { get; set; }
             public string Model { get; set; }

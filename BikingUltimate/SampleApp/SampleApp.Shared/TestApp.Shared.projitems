@@ -23,12 +23,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BikeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Section2ViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Section3ViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SectionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UserViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BikeDetails.xaml.cs">
+      <DependentUpon>BikeDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Section1.xaml.cs">
       <DependentUpon>Section1.xaml</DependentUpon>
     </Compile>
@@ -45,6 +49,10 @@
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\BikeDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\Section2.xaml">
       <SubType>Designer</SubType>
@@ -71,6 +79,9 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\Bike.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\Wheel2.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\Wheel.png" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using BikingUltimate.Client;
+using BikingUltimate.Client.Model;
 using ConsoleClient.Model;
-using Refit;
 
 namespace ConsoleClient
 {
@@ -15,9 +11,22 @@ namespace ConsoleClient
         static async Task Main(string[] args)
         {
             var client = BikingUltimateClient.Create();
-            //await PrintComponents(client, 1);
+            await PrintComponents(client, 1);
             //await CreateComponents(client, 1);
-            await PrintUsers(client);
+            //await PrintUsers(client);
+            //await PrintBikes(client, 1);
+        }
+
+        private static async Task PrintBikes(IBikingService client, int userId)
+        {
+            var bikes = await client.GetBikes(userId);
+
+            foreach (var component in bikes)
+            {
+                Console.WriteLine(component);
+            }
+
+            Console.ReadLine();
         }
 
         private static async Task PrintUsers(IBikingService client)
