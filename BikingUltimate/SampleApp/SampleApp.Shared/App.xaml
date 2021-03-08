@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="SampleApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sampleApp="using:SampleApp" 
+    xmlns:infrastructure="using:Zafiro.Uno.Infrastructure">
+
+    <Application.Resources>
+
+        <sampleApp:Composition x:Key="Composition" />
+        <infrastructure:UnitConverter x:Key="UnitConverter" />
+
+    </Application.Resources>
+
+</Application>

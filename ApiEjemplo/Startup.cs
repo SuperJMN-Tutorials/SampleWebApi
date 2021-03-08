@@ -48,7 +48,7 @@ namespace ApiEjemplo
             }
 
             app.UseCors(builder => builder
-                .WithOrigins("http://localhost:60287")
+                .WithOrigins("https://localhost:44341")
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
