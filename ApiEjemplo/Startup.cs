@@ -46,7 +46,12 @@ namespace ApiEjemplo
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiEjemplo v1"));
             }
-            
+
+            app.UseCors(builder => builder
+                .WithOrigins("http://localhost:60287")
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

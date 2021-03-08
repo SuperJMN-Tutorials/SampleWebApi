@@ -8,12 +8,21 @@
     mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainViewModel}">
 
     <NavigationView MenuItemsSource="{Binding Users}">
-        <NavigationView.Header>
-            <Button Command="{Binding LoadUsers}" />
-        </NavigationView.Header>
+        <NavigationView.PaneHeader>
+            <StackPanel>
+                <!--<Button Command="{Binding LoadUsers}">Refresh</Button>-->
+                <Button Command="{Binding LoadUsers}">
+                    <SymbolIcon Symbol="Refresh" />
+                </Button>
+            </StackPanel>
+        </NavigationView.PaneHeader>
         <NavigationView.MenuItemTemplate>
             <DataTemplate>
-                <TextBlock Text="{Binding Username}"></TextBlock>
+                <TextBlock FontWeight="Bold">
+                    <Run Text="{Binding FirstName}" />
+                    <Run Text="{Binding LastName}" />
+                    <LineBreak /><Run FontSize="10" FontWeight="Light" Text="{Binding Username}"/>
+                </TextBlock>
             </DataTemplate>
         </NavigationView.MenuItemTemplate>
     </NavigationView>
