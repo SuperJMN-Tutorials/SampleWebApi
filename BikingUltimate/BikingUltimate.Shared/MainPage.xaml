@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" d:DataContext="{d:DesignInstance local:MainViewModel}">
 
-    <NavigationView MenuItemsSource="{Binding Users}">
+    <NavigationView 
+        MenuItemsSource="{Binding Users}" 
+        SelectedItem="{Binding SelectedUser, Mode=TwoWay}" Content="{Binding Bikes}">
         <NavigationView.PaneHeader>
             <StackPanel>
                 <!--<Button Command="{Binding LoadUsers}">Refresh</Button>-->
