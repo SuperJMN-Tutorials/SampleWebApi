@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ApiEjemplo.Features.Users;
+using BikingUltimate.Server.Features.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

@@ -3,7 +3,7 @@ using ApiEjemplo.Features.Bikes;
 using ApiEjemplo.Features.Users;
 using ApiEjemplo.Model;
 using AutoMapper;
-using GetAll = ApiEjemplo.Features.Users.GetAll;
+using GetAll = BikingUltimate.Server.Features.Users.GetAll;
 
 namespace ApiEjemplo
 {

@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ApiEjemplo;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiEjemplo.Features.Users
+namespace BikingUltimate.Server.Features.Users
 {
     public class GetAll
     {

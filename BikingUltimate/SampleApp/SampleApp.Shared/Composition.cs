@@ -50,9 +50,7 @@ namespace SampleApp
         {
             var vmToViewMaps = new Dictionary<Type, Type>
             {
-                {typeof(UsersViewModel), typeof(Section1)},
-                {typeof(Section2ViewModel), typeof(Section2)},
-                {typeof(Section3ViewModel), typeof(Section3)},
+                {typeof(UsersViewModel), typeof(Users)},
             };
             
             map.AddRange(vmToViewMaps);

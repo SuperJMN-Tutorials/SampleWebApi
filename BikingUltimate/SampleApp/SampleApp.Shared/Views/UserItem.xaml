@@ -1,0 +1,49 @@
+﻿<UserControl
+    x:Class="TestApp.Shared.Views.UserItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:viewModels="using:SampleApp.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="100.5"
+    d:DesignWidth="376" d:DataContext="{d:DesignInstance viewModels:UserViewModel}">
+
+    <controls:Expander HorizontalContentAlignment="Stretch">
+
+        <interactivity:Interaction.Behaviors>
+            <core:EventTriggerBehavior EventName="Expanded">
+                <core:InvokeCommandAction Command="{Binding LoadBikes}" InputConverter="{StaticResource UnitConverter}" />
+            </core:EventTriggerBehavior>
+        </interactivity:Interaction.Behaviors>
+
+        <controls:Expander.Header>
+            <TextBlock FontWeight="Bold">
+                <Run Text="{Binding FirstName}" />
+                <Run Text="{Binding LastName}" />
+                <LineBreak /><Run FontSize="10" FontWeight="Light" Text="{Binding Username}" />
+            </TextBlock>
+        </controls:Expander.Header>
+        <ListView Margin="10 0 0 0" ItemsSource="{Binding Bikes}" 
+                  SelectedItem="{Binding SelectedBike, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Images/Bike.png" />
+                        <TextBlock Grid.Column="1" Margin="10">
+                            <Run Text="{Binding Path=Brand}" />
+                            <Run Text="{Binding Path=Model}" />
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </controls:Expander>
+</UserControl>

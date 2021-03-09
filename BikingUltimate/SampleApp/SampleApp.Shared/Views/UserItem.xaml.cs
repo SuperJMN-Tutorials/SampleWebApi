@@ -17,9 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TestApp.Shared.Views
 {
-    public sealed partial class UserDetails : UserControl
+    public sealed partial class UserItem : UserControl
     {
-        public UserDetails()
+        public UserItem()
         {
             this.InitializeComponent();
         }

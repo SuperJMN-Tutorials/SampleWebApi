@@ -26,24 +26,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BikeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Section2ViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Section3ViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SectionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UserViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BikeDetails.xaml.cs">
       <DependentUpon>BikeDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Section1.xaml.cs">
-      <DependentUpon>Section1.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Sections\Users.xaml.cs">
+      <DependentUpon>Users.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Section2.xaml.cs">
-      <DependentUpon>Section2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\Section3.xaml.cs">
-      <DependentUpon>Section3.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\UserDetails.xaml.cs">
-      <DependentUpon>UserDetails.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\UserItem.xaml.cs">
+      <DependentUpon>UserItem.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -54,19 +46,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\Section2.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\Sections\Users.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\Section1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\Section3.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\UserDetails.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\UserItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,5 +74,8 @@
     <Compile Update="D:\Repos\SuperJMN\UnoPlatform.AppTemplate\SampleApp\SampleApp.Shared\Views\SampleSection - Copy %282%29.xaml.cs">
       <DependentUpon>SampleSection - Copy %282%29.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\Sections\" />
   </ItemGroup>
 </Project>

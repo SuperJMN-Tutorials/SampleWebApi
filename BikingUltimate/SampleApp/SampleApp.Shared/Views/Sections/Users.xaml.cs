@@ -4,9 +4,9 @@ using Windows.UI.Xaml.Input;
 
 namespace SampleApp.Views
 {
-    public sealed partial class Section1 : UserControl
+    public sealed partial class Users : UserControl
     {
-        public Section1()
+        public Users()
         {
             this.InitializeComponent();
         }
