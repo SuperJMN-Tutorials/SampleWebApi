@@ -148,10 +148,6 @@
       <Project>{b4dffdca-5f66-4bc3-a92d-c49692a8c5f8}</Project>
       <Name>BikingUltimate.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SampleApp.Services\SampleApp.Services.csproj">
-      <Project>{04442ecd-76a4-47d6-9e7a-120dee32ac8d}</Project>
-      <Name>SampleApp.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="SampleApp.UWP_TemporaryKey.pfx" />
