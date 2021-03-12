@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using ApiEjemplo.Features.Activities;
+using BikingUltimate.Server.Features.Activities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +28,7 @@ namespace ApiEjemplo.Controllers
         {
             return await mediator.Send(request);
         }
-
+        
         [HttpGet("{id}")]
         public async Task<ActivityRead> Get(int id)
         {

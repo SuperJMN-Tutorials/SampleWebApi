@@ -1,11 +1,13 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using ApiEjemplo;
+using ApiEjemplo.Features.Activities;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiEjemplo.Features.Activities
+namespace BikingUltimate.Server.Features.Activities
 {
     public class Get
     {
@@ -25,11 +27,18 @@ namespace ApiEjemplo.Features.Activities
                 this.mappingConfig = mappingConfig;
             }
 
-            public Task<ActivityRead> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<ActivityRead> Handle(Query request, CancellationToken cancellationToken)
             {
-                return context.Activities
+                var activity = await context.Activities
                     .ProjectTo<ActivityRead>(mappingConfig)
-                    .FirstAsync(a => a.Id == request.Id, cancellationToken);
+                    .FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken);
+
+                if (activity is null)
+                {
+                    throw new NotFoundException($"The activity {request.Id} cannot be found");
+                }
+
+                return activity;
             }
         }
     }

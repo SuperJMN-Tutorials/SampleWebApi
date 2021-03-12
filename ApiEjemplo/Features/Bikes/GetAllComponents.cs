@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ApiEjemplo.Model;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using BikingUltimate.Server.Features.Activities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +38,11 @@ namespace ApiEjemplo.Features.Bikes
 
             public async Task<ICollection<ComponentRead>> Handle(GetAllComponentsRequest request, CancellationToken cancellationToken)
             {
+                if (await context.Bikes.FindAsync(new object[] { request.BikeId }, cancellationToken) is null)
+                {
+                    throw new NotFoundException($"Bike {request.BikeId} cannot be found");
+                }
+
                 var components = context.Bikes
                     .Where(x => x.Id == request.BikeId)
                     .SelectMany(bike => bike.Components);

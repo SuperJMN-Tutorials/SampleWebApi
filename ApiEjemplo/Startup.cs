@@ -1,3 +1,4 @@
+using BikingUltimate.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +24,8 @@ namespace ApiEjemplo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddJsonOptions(o =>
+            services.AddControllers(config => config.Filters.Add(new ExceptionFilter()))
+                .AddJsonOptions(o =>
             {
                 o.JsonSerializerOptions.IgnoreNullValues = true;
                 o.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
