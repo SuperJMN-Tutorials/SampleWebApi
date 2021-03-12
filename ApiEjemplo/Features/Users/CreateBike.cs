@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ApiEjemplo;
 using ApiEjemplo.Model;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiEjemplo.Features.Users
+namespace BikingUltimate.Server.Features.Users
 {
     public class CreateBike
     {
@@ -39,7 +39,7 @@ namespace ApiEjemplo.Features.Users
             {
                 var user = context.Users
                     .Include(b => b.Bikes)
-                    .FirstOrDefault(u =>  u.Id == request.UserId);
+                    .FirstOrDefault(u => u.Id == request.UserId);
 
                 if (user != null)
                 {
@@ -55,13 +55,17 @@ namespace ApiEjemplo.Features.Users
             }
         }
 
-      public class BikeInfo
+        public class BikeInfo
         {
-        public string Brand { get; set; }
-        public double Distance { get; set; }
-        public string Model { get; set; }
+            public BikeInfo(string brand, string model)
+            {
+                Brand = brand ?? throw new ArgumentNullException(nameof(brand));
+                Model = model ?? throw new ArgumentNullException(nameof(model));
+            }
+
+            public string Brand { get; }
+            public double Distance { get; set; }
+            public string Model { get; }
         }
     }
-
-   
 }

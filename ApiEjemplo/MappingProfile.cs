@@ -3,6 +3,7 @@ using ApiEjemplo.Features.Bikes;
 using ApiEjemplo.Features.Users;
 using ApiEjemplo.Model;
 using AutoMapper;
+using BikingUltimate.Server.Features.Users;
 using GetAll = BikingUltimate.Server.Features.Users.GetAll;
 
 namespace ApiEjemplo
@@ -17,7 +18,7 @@ namespace ApiEjemplo
             CreateMap<User, GetAll.UserRead>();
             CreateMap<Bike, GetAllBikes.BikeRead>();
             CreateMap<CreateBike.BikeInfo, Bike>();
-
+            CreateMap<User, GetUsersWhoRequireMaintence.MaintanceUserRead>();
         }
     }
 }

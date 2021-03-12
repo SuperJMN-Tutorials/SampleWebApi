@@ -57,6 +57,16 @@ namespace ApiEjemplo.Features.Bikes
 
         public class ComponentInfo
         {
+            public ComponentInfo(string brand, string model, double distance, double weight, ComponentType componentType, DateTimeOffset addedOn)
+            {
+                Brand = brand;
+                Model = model;
+                Distance = distance;
+                Weight = weight;
+                ComponentType = componentType;
+                AddedOn = addedOn;
+            }
+
             public string Brand { get; set; }
             public string Model { get; set; }
             public double Distance { get; set; }
